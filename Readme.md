@@ -16,3 +16,9 @@
       - Links
       - Address
       - Contact
+
+# Config Driven UI .
+
+- our website is driven by data ( our web site is driven by configs)
+- Controlling UI based on the Data coming
+- Example : In swiggy , based on location the data changes and UI behaves accordingly
