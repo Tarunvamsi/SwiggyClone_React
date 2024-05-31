@@ -29,3 +29,18 @@
 - React doesnt uniquely identify that items , so it will re render again all items , so we must use the keys whenever we use map in react
 - - some devs will use index as a key . *React says never use index as a key (anti-pattern)* 
 -   unique key (best practice)>>>> index as key >>>>>>> not using key (not acceptiable)
+-   
+# Export and import the components in React
+
+- export syntax :   export default < componentName >          //default export (1st type)
+- import syntax : import < componentName > from < fileLocation >
+
+- We cant write default export more than once , we should write only one default export 
+- By default a file can export only one thing 
+- To export multiple things we use names exports     
+  -  just write export infront of that things    ( export const CON_URL="sdgfdg")
+  -   # How to import named export
+      -   import {CON_URL} from "../../utils/constants";            //example
+
+* We should not keep any hardcoded data or anything in the component files
+* We need to call in seperate files ( const.js or config.js or utils.js)
