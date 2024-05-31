@@ -63,3 +63,19 @@
         - by a function , the function comes as second parameter in the array 
           - const [restroList , setRestroList]= useState([{Defaultdata}]);
     - useEffect()
+### Whenever state varaible changes react render the components --> Quickly updates the UI -React keeps eye on state variable 
+  
+
+# How React work in Background ?
+  ### React uses "RECONCILIATION ALGORITHM" (React fiber(from React16))
+      - React fber is ongoing reimplemntation of Reacts core algorithm
+  - #### Incremental Rendering : Ability to split the rendering work into chunks and spread out over multiple frames  (React makes application faster)
+    - On the UI we have a DOM 
+      - Suppose we have 7 restaurant cards
+        - After filtering our Ui changes to 3 restaurant cards
+      -When we have 7 restaurants cards at beginning , react creates a  *Virtual DOM (Represntation of an Actual DOM )* --> Javascript Object (React Virtual Dom)
+
+# Diff Algorithm
+  ### Findss the differnce bewtween two Virtual DOMS (old Virtual dom and new virtual dom)
+      - *ReactFiber* It will calculate the Differnce between the objects when any event happens and calculate the result and update the DOM at every render cycle
+  
