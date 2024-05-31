@@ -44,3 +44,22 @@
 
 * We should not keep any hardcoded data or anything in the component files
 * We need to call in seperate files ( const.js or config.js or utils.js)
+  
+# To keep data layer and UI layer consistent and sync with each other , here comes REACT
+- REACT can do faster , efficient DOM manipulation
+
+# State Variable in React - super powerful variable
+- useState - Hooks
+   ####  React Hook - A normal javascript function given to us by react , which is prebuilt ( utility function)
+    ##### Hooks In react 
+    - useState() - Gives the Super Powerful react state variables
+        - import {useState} from "react";
+        - used to create State Variable 
+          - it maintains the state of the component
+          - local state Variable scope is inside the component
+          - const [restroList] = useState([//pass default value]);   //Local state variable creation syntax by react
+          - let restroList ;    //noraml Js variable creation
+      - To modify the restroList 
+        - by a function , the function comes as second parameter in the array 
+          - const [restroList , setRestroList]= useState([{Defaultdata}]);
+    - useEffect()
