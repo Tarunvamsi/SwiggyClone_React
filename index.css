@@ -1,27 +1,23 @@
 .header {
-    display: flex;
-    justify-content: space-between;
-    border: 1.5px solid black;
-    
-
+  display: flex;
+  justify-content: space-between;
+  border: 1.5px solid black;
 }
 
 .logo {
-    width:180px ;
+  width: 180px;
 }
 
 .nav-items > ul {
-    display: flex;
-    list-style-type: none;
-    font-size: 24px;
-    
-
+  display: flex;
+  list-style-type: none;
+  font-size: 24px;
 }
 
 .nav-items > ul > li {
-    padding: 10px;
-    margin: 10px;
-    padding-bottom: 1px;
+  padding: 10px;
+  margin: 10px;
+  padding-bottom: 1px;
 }
 
 /* .body {
@@ -29,46 +25,50 @@
 } */
 
 .search {
-    padding: 10px;
+  padding: 10px;
 }
 
 .res-card {
-    width: 200px;
-    height: 400px;
-    border: 1px solid black;
-    background-color:rgb(255, 207, 168);
-    padding: 5px;
-    margin: 5px;
-    transition: transform 0.3s ease;
-    
-    
-
+  width: 200px;
+  height: 400px;
+  border: 1px solid black;
+  background-color: rgb(255, 207, 168);
+  padding: 5px;
+  margin: 5px;
+  transition: transform 0.3s ease;
 }
 
-.res-card:hover{
-    border: 1px solid rgb(248, 0, 0);
-    cursor: pointer;
-    transform: scale(1.05);
-
-    
+.res-card:hover {
+  border: 1px solid rgb(248, 0, 0);
+  cursor: pointer;
+  transform: scale(1.05);
 }
 
 .res-logo {
-    height: 35%;
-    width:100%
-    
+  height: 35%;
+  width: 100%;
 }
 
 .res-container {
-    display: flex;
-    flex-wrap: wrap;
-    
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .filter-btn {
-    margin: 10px;
-    cursor: pointer;
-    color: rgb(0, 0, 0);
-    box-shadow: 10px;
-    background-color: rgb(255, 171, 111);
+  margin: 10px;
+  cursor: pointer;
+  color: rgb(0, 0, 0);
+  box-shadow: 10px;
+  background-color: rgb(255, 171, 111);
+}
+
+.shimmer-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+.shimmer-cards {
+  margin: 20px;
+  width: 200px;
+  height: 400px;
+  background-color: #f0f0f0;
 }
