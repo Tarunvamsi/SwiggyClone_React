@@ -78,4 +78,21 @@
 # Diff Algorithm
   ### Findss the differnce bewtween two Virtual DOMS (old Virtual dom and new virtual dom)
       - *ReactFiber* It will calculate the Differnce between the objects when any event happens and calculate the result and update the DOM at every render cycle
-  
+
+# UseEffect Hook();
+- impoert {useEffect} from "react";
+- useEffect will take two arguments 
+  - 1st Arrow function( Call back function)
+  - 2nd Dependency Array
+- # When will useEffect call back function called? 
+  - this call backfunction is called After our component renders
+  -  If we want something to be called after our page renders we use UseEffect
+-  
+
+
+# Can we call swiggy api in our project ?
+- when we fect the swiggy api , we are getting error 
+- Access to fetch at API' from origin 'http://localhost:1234' has been blocked by CORS policy
+- What is CORS policy ? Who is blocking us ?
+  - Our browsers block us from calling API from one origin to other origin 
+- How to bypass this cors ploicy error - Use CORS chrome exteniosn
