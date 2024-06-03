@@ -123,3 +123,9 @@
   - Do you know?
     - Many developers have doubt that How const state variable is updated , when it is constant?
     - Answer : When we are using state setter it is re rendering the whole component , so the old const variable is not same , as it is totally rerendered it is actg like new variable , so it will update the value adn refernce and will re render
+
+## Whenever we change the local state variable, react will rerender the component 📌
+
+# STATE REACT VARIABLE - When ever state Variable update, react triggers a recoinciliation cycle ( re-renders the component) --> React has such amazing best algorithmsm to do this
+
+- and it will updatge only the portion required

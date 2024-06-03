@@ -55,6 +55,7 @@
 }
 
 .filter-btn {
+  height: 30px;
   margin: 10px;
   cursor: pointer;
   color: rgb(0, 0, 0);
@@ -109,4 +110,17 @@
   background-color: #ff8c00;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   border-color: #e07b00;
+}
+
+.filter {
+  display: flex;
+}
+
+.search {
+  display: flex;
+  width: 10px;
+}
+
+.search-box {
+  margin-right: 7px;
 }
