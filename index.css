@@ -1,7 +1,7 @@
 .header {
   display: flex;
   justify-content: space-between;
-  border: 1.5px solid black;
+  border: 1.5px solid rgb(255, 255, 255);
 }
 
 .logo {
@@ -123,4 +123,69 @@
 
 .search-box {
   margin-right: 7px;
+}
+
+.company h1 {
+  font-family: "Arial", sans-serif;
+  font-size: 48px;
+  color: #ff6700;
+  text-shadow: 0 0 10px rgba(255, 103, 0, 0.7), 0 0 20px rgba(255, 103, 0, 0.6),
+    0 0 30px rgba(255, 103, 0, 0.5), 0 0 40px rgba(255, 103, 0, 0.4),
+    0 0 50px rgba(255, 103, 0, 0.3);
+  transition: all 0.3s ease-in-out;
+}
+
+.company h1:hover {
+  color: #ffffff;
+  text-shadow: 0 0 20px rgba(255, 103, 0, 0.9), 0 0 40px rgba(255, 103, 0, 0.8),
+    0 0 60px rgba(255, 103, 0, 0.7), 0 0 80px rgba(255, 103, 0, 0.6),
+    0 0 100px rgba(255, 103, 0, 0.5);
+  transform: scale(1.1);
+}
+
+.footer {
+  background-color: #030202;
+  padding: 20px;
+  text-align: center;
+  color: #fff;
+  position: relative;
+  bottom: 0;
+  z-index: 1000;
+  width: 100%;
+}
+
+.footer h1 {
+  font-family: "Arial", sans-serif;
+  font-size: 36px;
+  color: #ff6700;
+  text-shadow: 0 0 10px rgba(255, 103, 0, 0.7), 0 0 20px rgba(255, 103, 0, 0.6),
+    0 0 30px rgba(255, 103, 0, 0.5);
+  transition: all 0.3s ease-in-out;
+}
+
+.footer h1:hover {
+  color: #ffffff;
+  text-shadow: 0 0 20px rgba(255, 103, 0, 0.9), 0 0 40px rgba(255, 103, 0, 0.8),
+    0 0 60px rgba(255, 103, 0, 0.7), 0 0 80px rgba(255, 103, 0, 0.6);
+  transform: scale(1.05);
+}
+
+.footer h5 {
+  font-family: "Arial", sans-serif;
+  font-size: 14px;
+  color: #888;
+  text-shadow: 0 0 5px rgba(255, 103, 0, 0.5);
+  transition: color 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
+}
+
+.footer h5:hover {
+  color: #ff6700;
+  text-shadow: 0 0 10px rgba(255, 103, 0, 0.7), 0 0 20px rgba(255, 103, 0, 0.6);
+}
+
+body {
+  background-color: #000000;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
 }
