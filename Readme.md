@@ -114,3 +114,12 @@
 - Shimmer UI is a technique for displaying loading states in web and mobile apps. It provides a FAKE PAGE the appearance of content that will eventually load, improving the user experience by providing visual feedback and reducing perceived wait times
 - We make user psychologocly better
 - when we load a page , we see a blank cards and eventually they will filled with data
+
+# State Updater Function or State setter in React
+
+- const [btn, setbtn] = useState('Click me');
+- btn: This is the state variable that holds the current state value.
+- setbtn: This is the state updater function. You call this function to update the state value of btn. When you call setbtn, _React will re-render the whole component again_ with the new state value.
+  - Do you know?
+    - Many developers have doubt that How const state variable is updated , when it is constant?
+    - Answer : When we are using state setter it is re rendering the whole component , so the old const variable is not same , as it is totally rerendered it is actg like new variable , so it will update the value adn refernce and will re render
