@@ -7,3 +7,6 @@ export const cordinates = {
   blr: ["12.9352403", "77.624532"],
   delhi: ["28.7040592", "77.10249019999999"],
 };
+
+export const MENU_API =
+  "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=12.9352403&lng=77.624532&restaurantId=";

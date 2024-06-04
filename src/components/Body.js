@@ -4,6 +4,7 @@ import { resList as resData } from "../../utils/mockData";
 import { useState } from "react";
 import Shimmer from "./Shimmer";
 import { cordinates } from "../../utils/constants";
+import { Link } from "react-router-dom";
 
 const Body = () => {
   const [resList, setResList] = useState([]);
@@ -25,7 +26,7 @@ const Body = () => {
 
   const fetchData = async () => {
     setIsLoading(true);
-    const location = cordinates["blr"];
+    const location = cordinates["delhi"];
     const response = await fetch(
       `https://www.swiggy.com/dapi/restaurants/list/v5?lat=${location[0]}&lng=${location[1]}&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`
     );
@@ -100,7 +101,9 @@ const Body = () => {
       <div className="res-container">
         {
           filteredRestro.map((restaurant) => (
-            <RestaurantCard key={restaurant.id} resData={restaurant} />
+            <Link key={restaurant.id} to={"/restaurants/" + restaurant.id}>
+              <RestaurantCard resData={restaurant} />{" "}
+            </Link>
           )) //why keys?- to uniquely identify list items to not get rendered again and again
         }
       </div>

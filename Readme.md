@@ -129,3 +129,5 @@
 # STATE REACT VARIABLE - When ever state Variable update, react triggers a recoinciliation cycle ( re-renders the component) --> React has such amazing best algorithmsm to do this
 
 - and it will updatge only the portion required
+
+- Never Use anchor tag in react to navgiate through pages , beacuase anchor tag will rerender the whole page again when navigated
