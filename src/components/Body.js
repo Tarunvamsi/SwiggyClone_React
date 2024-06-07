@@ -26,7 +26,7 @@ const Body = () => {
 
   const fetchData = async () => {
     setIsLoading(true);
-    const location = cordinates["delhi"];
+    const location = cordinates["blr"];
     const response = await fetch(
       `https://www.swiggy.com/dapi/restaurants/list/v5?lat=${location[0]}&lng=${location[1]}&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`
     );
