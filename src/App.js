@@ -1,14 +1,14 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import { createRoot } from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
-import About from "./components/About";
 import ContactUs from "./components/ContactUs";
 import Error from "./components/Error";
 import Footer from "./components/Footer";
 import RestaurantMenu from "./components/RestaurantMenu";
+// import Grocery from "./components/Grocery";
 
 const AppLayout = () => {
   return (
@@ -19,6 +19,8 @@ const AppLayout = () => {
   );
 };
 
+const Grocery = lazy(() => import("./components/Grocery"));
+const About = lazy(() => import("./components/About"));
 const appRouter = createBrowserRouter([
   {
     path: "/",
@@ -30,11 +32,23 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "/about",
-        element: <About></About>,
+        element: (
+          <Suspense fallback={<h1>Loading..please wait</h1>}>
+            <About></About>
+          </Suspense>
+        ),
       },
       {
         path: "/contact",
         element: <ContactUs></ContactUs>,
+      },
+      {
+        path: "/grocery",
+        element: (
+          <Suspense fallback={<h1>Loading..please wait</h1>}>
+            <Grocery></Grocery>
+          </Suspense>
+        ),
       },
       {
         path: "/restaurants/:resId", //resId can be dynamic based on Restaurant
