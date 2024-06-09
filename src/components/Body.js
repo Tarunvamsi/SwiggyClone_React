@@ -5,6 +5,7 @@ import { useState } from "react";
 import Shimmer from "./Shimmer";
 import { cordinates } from "../../utils/constants";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../../utils/useOnlineStatus";
 
 const Body = () => {
   const [resList, setResList] = useState([]);
@@ -45,6 +46,16 @@ const Body = () => {
     setFilteredRestro(filteredRestroById);
     setIsLoading(false);
   };
+
+  const onlineStatus = useOnlineStatus();
+  if (onlineStatus === false)
+    return (
+      <h1>
+        {" "}
+        Looks like you are offline..!! please check your internet connection{" "}
+      </h1>
+    );
+
   // conditional rendering
   if (isLoading) {
     return <Shimmer></Shimmer>;
