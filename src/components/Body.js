@@ -71,20 +71,22 @@ const Body = () => {
 
   return (
     <div className="body">
-      <div className="filter">
-        <button
-          className="filter-btn"
-          onClick={() => {
-            const filteredList = resList.filter((res) => res.avgRating > 4.1);
-            setFilteredRestro(filteredList);
-          }}
-        >
-          Top Rated Restaurants
-        </button>
-        <div className="search">
+      <div className="filter flex">
+        <div className="px-6 m-4  flex items-center ">
+          <button
+            className="px-4 py-3 bg-orange-300 rounded-lg"
+            onClick={() => {
+              const filteredList = resList.filter((res) => res.avgRating > 4.1);
+              setFilteredRestro(filteredList);
+            }}
+          >
+            Top Rated Restaurants
+          </button>
+        </div>
+        <div className="p-4 m-4">
           <input
             type="text"
-            className="search-box"
+            className=" px-6 py-3 border border-solid border-black"
             value={searchText}
             onChange={(e) => {
               setSearchText(() => e.target.value);
@@ -92,7 +94,7 @@ const Body = () => {
             }}
           />
           <button
-            className="btn"
+            className="px-6 py-3 bg-green-100 m-4 rounded-lg "
             onClick={() => {
               console.log(searchText);
               const filteredRestaurant = !searchText
@@ -109,11 +111,11 @@ const Body = () => {
           </button>
         </div>
       </div>
-      <div className="res-container">
+      <div className="flex  w-full justify-center flex-wrap ">
         {
           filteredRestro.map((restaurant) => (
             <Link key={restaurant.id} to={"/restaurants/" + restaurant.id}>
-              <RestaurantCard resData={restaurant} />{" "}
+              <RestaurantCard className="flex-1" resData={restaurant} />{" "}
             </Link>
           )) //why keys?- to uniquely identify list items to not get rendered again and again
         }
