@@ -6,6 +6,7 @@ import Shimmer from "./Shimmer";
 import { RESTAURANT_LIST_URL, cordinates } from "../../utils/constants";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../../utils/useOnlineStatus";
+import Location from "./Location";
 
 const Body = () => {
   const [resList, setResList] = useState([]);
@@ -27,7 +28,7 @@ const Body = () => {
 
   const fetchData = async () => {
     setIsLoading(true);
-    const location = cordinates["blr"];
+    const location = cordinates["mumbai"];
     const response = await fetch(RESTAURANT_LIST_URL(location));
     const responseJson = await response.json();
     console.log(responseJson);
@@ -86,6 +87,7 @@ const Body = () => {
             type="text"
             className=" px-6 py-3 border border-solid border-black"
             value={searchText}
+            placeholder="Search Restaurants here..."
             onChange={(e) => {
               setSearchText(() => e.target.value);
               console.log(searchText);
@@ -108,6 +110,7 @@ const Body = () => {
             Search
           </button>
         </div>
+        <Location />
       </div>
       <div className="flex  w-full justify-center flex-wrap ">
         {
