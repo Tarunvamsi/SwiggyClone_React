@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "start": "parcel index.html",
-    "build": "parcel build index.html",
-    "test": "jest"
+    "start": "parcel src/index.html",
+    "build": "parcel build src/index.html",
+    "test": "jest",
+    "watch": "parcel watch src/index.html"
   },
   "author": "Tarun Vamsi Pusarla",
   "license": "ISC",

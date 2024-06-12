@@ -7,6 +7,7 @@ const RestaurantCard = (props) => {
   const {
     cloudinaryImageId,
     name,
+    locality,
     cuisines,
     avgRating,
     sla,
@@ -23,6 +24,10 @@ const RestaurantCard = (props) => {
       <h3 className="font-bold py-4 text-lg">
         {name.length > 23 ? `${name.slice(0, 20)}...` : name}
       </h3>
+      <h4 className="font-semibold py-1">
+        🏭{locality.length > 18 ? `${locality.slice(0, 17)}...` : locality}
+      </h4>
+
       <h4>{cuisines.slice(0, 2).join(", ")}</h4>
       <div
         style={{

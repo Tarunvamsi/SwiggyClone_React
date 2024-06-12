@@ -1,22 +1,26 @@
 import RestaurantCard from "./RestaurantCard";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { resList as resData } from "../../utils/mockData";
-import { useState } from "react";
 import Shimmer from "./Shimmer";
-import { RESTAURANT_LIST_URL, cordinates } from "../../utils/constants";
+import { RESTAURANT_LIST_URL } from "../../utils/constants";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../../utils/useOnlineStatus";
 import Location from "./Location";
+import Landing from "./Landing";
 
 const Body = () => {
   const [resList, setResList] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [searchText, setSearchText] = useState("");
   const [filteredRestro, setFilteredRestro] = useState([]);
+  const [locationSearched, setLocationSearched] = useState(false);
+  const [latLng, setLatLng] = useState({ lat: null, lng: null });
 
   useEffect(() => {
-    fetchData();
-  }, []);
+    if (latLng.lat && latLng.lng) {
+      fetchData(latLng.lat, latLng.lng);
+    }
+  }, [latLng]);
 
   const filterApiDataById = (id, cards) => {
     for (const item of cards) {
@@ -26,10 +30,9 @@ const Body = () => {
     }
   };
 
-  const fetchData = async () => {
+  const fetchData = async (lat, lng) => {
     setIsLoading(true);
-    const location = cordinates["mumbai"];
-    const response = await fetch(RESTAURANT_LIST_URL(location));
+    const response = await fetch(RESTAURANT_LIST_URL(lat, lng));
     const responseJson = await response.json();
     console.log(responseJson);
 
@@ -46,6 +49,11 @@ const Body = () => {
     setIsLoading(false);
   };
 
+  const handleLocationSearch = (lat, lng) => {
+    setLatLng({ lat, lng });
+    setLocationSearched(true);
+  };
+
   const onlineStatus = useOnlineStatus();
   if (onlineStatus === false)
     return (
@@ -55,15 +63,25 @@ const Body = () => {
       </h1>
     );
 
-  // conditional rendering
+  if (!locationSearched) {
+    return (
+      <div>
+        <div className="bg-gray-50 flex flex-wrap   min-h-screen p-6">
+          <Location onLocationSearch={handleLocationSearch} />
+          <Landing></Landing>
+        </div>
+      </div>
+    );
+  }
+
   if (isLoading) {
-    return <Shimmer></Shimmer>;
+    return <Shimmer />;
   }
 
   if (resList.length === 0) {
     return (
       <div>
-        <h1>Not servicable at this moment ..</h1>
+        <h1>Not serviceable at this moment ..</h1>
       </div>
     );
   }
@@ -75,7 +93,7 @@ const Body = () => {
           <button
             className="px-4 py-3 bg-orange-300 rounded-lg"
             onClick={() => {
-              const filteredList = resList.filter((res) => res.avgRating > 4.1);
+              const filteredList = resList.filter((res) => res.avgRating > 4.0);
               setFilteredRestro(filteredList);
             }}
           >
@@ -89,7 +107,7 @@ const Body = () => {
             value={searchText}
             placeholder="Search Restaurants here..."
             onChange={(e) => {
-              setSearchText(() => e.target.value);
+              setSearchText(e.target.value);
               console.log(searchText);
             }}
           />
@@ -110,16 +128,14 @@ const Body = () => {
             Search
           </button>
         </div>
-        <Location />
+        <Location onLocationSearch={handleLocationSearch} />
       </div>
-      <div className="flex  w-full justify-center flex-wrap ">
-        {
-          filteredRestro.map((restaurant) => (
-            <Link key={restaurant.id} to={"/restaurants/" + restaurant.id}>
-              <RestaurantCard className="flex-1" resData={restaurant} />{" "}
-            </Link>
-          )) //why keys?- to uniquely identify list items to not get rendered again and again
-        }
+      <div className="flex w-full justify-center flex-wrap">
+        {filteredRestro.map((restaurant) => (
+          <Link key={restaurant.id} to={"/restaurants/" + restaurant.id}>
+            <RestaurantCard className="flex-1" resData={restaurant} />
+          </Link>
+        ))}
       </div>
     </div>
   );

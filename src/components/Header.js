@@ -16,8 +16,8 @@ const Header = () => {
         <img className="w-20" alt="logo" src={LOGO_URL}></img>
       </div>
       <div>
-        <h1 className="	font-bold	antialiased text-5xl	items-center mt-8 ml-6 ">
-          Foodie Hub
+        <h1 class="text-6xl font-bold text-orange-600 transition duration-300 transform hover:scale-105 hover:shadow-lg">
+          Foodie Haven
         </h1>
       </div>
       <div className="flex items-center px-2">
