@@ -8,7 +8,6 @@ const Location = ({ onLocationSearch }) => {
   const apiKey = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
 
   useEffect(() => {
-    // Load the Google Maps script dynamically
     const loadScript = (url) => {
       const script = document.createElement("script");
       script.src = url;
