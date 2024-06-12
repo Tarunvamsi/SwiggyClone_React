@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import { resList as resData } from "../../utils/mockData";
 import { useState } from "react";
 import Shimmer from "./Shimmer";
-import { cordinates } from "../../utils/constants";
+import { RESTAURANT_LIST_URL, cordinates } from "../../utils/constants";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../../utils/useOnlineStatus";
 
@@ -28,9 +28,7 @@ const Body = () => {
   const fetchData = async () => {
     setIsLoading(true);
     const location = cordinates["blr"];
-    const response = await fetch(
-      `https://www.swiggy.com/dapi/restaurants/list/v5?lat=${location[0]}&lng=${location[1]}&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`
-    );
+    const response = await fetch(RESTAURANT_LIST_URL(location));
     const responseJson = await response.json();
     console.log(responseJson);
 
