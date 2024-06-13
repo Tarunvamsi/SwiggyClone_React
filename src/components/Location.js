@@ -6,6 +6,7 @@ const Location = ({ onLocationSearch }) => {
   const [geocoder, setGeocoder] = useState(null);
   const [scriptLoaded, setScriptLoaded] = useState(false);
   const apiKey = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
+  console.log(apiKey);
 
   useEffect(() => {
     const loadScript = (url) => {
@@ -20,7 +21,7 @@ const Location = ({ onLocationSearch }) => {
     };
 
     loadScript(
-      "https://maps.googleapis.com/maps/api/js?key=apiKey&libraries=places"
+      `https://maps.googleapis.com/maps/api/js?key=${apiKey}&libraries=places`
     );
   }, []);
 
