@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import { MENU_IMG_ID } from "../../utils/constants";
 import useRestaurantMenu from "../../utils/useRestaurantMenu";
 import Button from "./ui/Button";
+import Toggle from "./ui/Toggle";
 
 // Set the app element for the modal (usually your root element)
 Modal.setAppElement("#root");
@@ -38,12 +39,17 @@ const RestaurantMenu = () => {
 
   return (
     <div className="m-1 p-1">
-      <h1 className="text-5xl font-extrabold text-center">
-        {resNamePath.name}
-      </h1>
-      <p className="text-2xl font-bold text-center">
-        {resNamePath.cuisines.join(", ")} - {resNamePath.costForTwoMessage}
-      </p>
+      <div class="container mx-auto my-8 p-4">
+        <div class="bg-white shadow-xl rounded-lg p-6">
+          <h1 class="text-5xl font-extrabold text-center text-green-500 hover:text-orange-600 transition duration-300 ease-in-out transform hover:scale-105">
+            {resNamePath.name}
+          </h1>
+          <p class="text-2xl font-bold text-center text-gray-600 mt-4">
+            {resNamePath.cuisines.join(", ")} - {resNamePath.costForTwoMessage}
+          </p>
+        </div>
+      </div>
+
       <div className=" p-8 w-full flex flex-col shadow-xl rounded-lg">
         {categories.map((category, index) => {
           const categoryTitle = category.card.card.title;
@@ -66,6 +72,22 @@ const RestaurantMenu = () => {
                       src={MENU_IMG_ID + item.card.info.imageId}
                     />
                     <div className="font-bold text-lg">
+                      <span className="inline-flex items-center">
+                        {item.card.info.itemAttribute.vegClassifier ===
+                        "VEG" ? (
+                          <img
+                            src="https://png.pngitem.com/pimgs/s/151-1515150_veg-icon-png-circle-transparent-png.png"
+                            alt="Veg"
+                            className="ml-2 w-4 h-4"
+                          />
+                        ) : (
+                          <img
+                            src="https://cdn.vectorstock.com/i/500p/00/43/non-vegetarian-sign-veg-logo-symbol-vector-50890043.jpg"
+                            alt="Non-Veg"
+                            className="ml-2 w-4 h-4"
+                          />
+                        )}
+                      </span>{" "}
                       {item.card.info.name}
                     </div>
                     <div className="font-medium">

@@ -1,5 +1,4 @@
-import { CDN_URL } from "../../utils/constants";
-
+import { CDN_URL, PURE_VEG_LOGO } from "../../utils/constants";
 const RestaurantCard = (props) => {
   // console.log(props);
   const { resData } = props;
@@ -44,6 +43,26 @@ const RestaurantCard = (props) => {
       <h5 className="font-medium">{costForTwo}</h5>
     </div>
   );
+};
+
+//Higher Order Component --> Input restro card --> Output restaurant is open
+
+export const withVegLabel = (RestaurantCard) => {
+  return (props) => {
+    return (
+      <div class="-z-50 inline-block">
+        <div class=" absolute flex items-center bg-gradient-to-r from-green-400 to-green-600 text-white m-1 py-2 px-4 rounded-full shadow-lg space-x-2">
+          <img
+            src="https://png.pngitem.com/pimgs/s/151-1515150_veg-icon-png-circle-transparent-png.png"
+            alt="Veg Icon"
+            class="h-4 w-4  border-2 border-white shadow-md"
+          />
+          <span class=" font-semibold text-sm">Pure Veg</span>
+        </div>
+        <RestaurantCard {...props} />
+      </div>
+    );
+  };
 };
 
 export default RestaurantCard;

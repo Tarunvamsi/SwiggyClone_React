@@ -1,4 +1,4 @@
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard, { withVegLabel } from "./RestaurantCard";
 import React, { useEffect, useState } from "react";
 import { resList as resData } from "../../utils/mockData";
 import Shimmer from "./Shimmer";
@@ -15,6 +15,7 @@ const Body = () => {
   const [filteredRestro, setFilteredRestro] = useState([]);
   const [locationSearched, setLocationSearched] = useState(false);
   const [latLng, setLatLng] = useState({ lat: null, lng: null });
+  const RestaurantCardVeg = withVegLabel(RestaurantCard); //have open label inside it
 
   useEffect(() => {
     if (latLng.lat && latLng.lng) {
@@ -57,10 +58,12 @@ const Body = () => {
   const onlineStatus = useOnlineStatus();
   if (onlineStatus === false)
     return (
-      <h1>
-        {" "}
-        Looks like you are offline..!! please check your internet connection{" "}
-      </h1>
+      <div className="flex flex-col items-center justify-center bg-red-600 p-4">
+        <h1 className="text-3xl font-bold text-white">
+          Looks like you are offline..:( !! Please check your internet
+          connection 🌐
+        </h1>
+      </div>
     );
 
   if (!locationSearched) {
@@ -133,7 +136,11 @@ const Body = () => {
       <div className="flex w-full justify-center flex-wrap">
         {filteredRestro.map((restaurant) => (
           <Link key={restaurant.id} to={"/restaurants/" + restaurant.id}>
-            <RestaurantCard className="flex-1" resData={restaurant} />
+            {restaurant.veg ? (
+              <RestaurantCardVeg resData={restaurant} />
+            ) : (
+              <RestaurantCard className="flex-1" resData={restaurant} />
+            )}
           </Link>
         ))}
       </div>

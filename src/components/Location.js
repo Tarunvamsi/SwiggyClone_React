@@ -6,7 +6,6 @@ const Location = ({ onLocationSearch }) => {
   const [geocoder, setGeocoder] = useState(null);
   const [scriptLoaded, setScriptLoaded] = useState(false);
   const apiKey = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
-  console.log(apiKey);
 
   useEffect(() => {
     const loadScript = (url) => {
@@ -51,17 +50,15 @@ const Location = ({ onLocationSearch }) => {
         if (status === window.google.maps.GeocoderStatus.OK) {
           const lat = results[0].geometry.location.lat();
           const lng = results[0].geometry.location.lng();
-          console.log("Latitude:", lat);
-          console.log("Longitude:", lng);
+          // console.log("Latitude:", lat);
+          // console.log("Longitude:", lng);
           onLocationSearch(lat, lng);
         } else {
           console.error(
             "Geocode was not successful for the following reason:",
             status
           );
-          alert(
-            "Geocode was not successful for the following reason: " + status
-          );
+          alert("Please Enter your Location 📍" + status);
         }
       });
     }
@@ -72,16 +69,16 @@ const Location = ({ onLocationSearch }) => {
       <input
         type="text"
         id="my-address"
-        className="px-6 py-3 border border-solid border-black"
+        className="px-6 py-3 border border-solid border-black rounded-xl "
         value={location}
         placeholder="Search your location..."
         onChange={(e) => {
           setLocation(e.target.value);
-          console.log(e.target.value);
+          // console.log(e.target.value);
         }}
       />
       <button
-        className="px-6 py-3 bg-green-100 m-4 rounded-lg"
+        className="px-6 py-3 bg-blue-500 m-4 rounded-lg"
         onClick={handleSearch}
       >
         Search

@@ -11,7 +11,7 @@ const Header = () => {
   }, [btnName]);
 
   return (
-    <div className="flex justify-between bg-orange-300 shadow-lg mb-2  w-full ">
+    <div className=" z-10 flex justify-between bg-orange-300 shadow-lg mb-2  w-full sticky top-0 ">
       <div className="logo-container">
         <img className="w-20" alt="logo" src={LOGO_URL}></img>
       </div>
@@ -22,22 +22,24 @@ const Header = () => {
       </div>
       <div className="flex items-center px-2">
         <ul className="flex p-4 m-4">
-          <li className="px-4">Online Status : {onlineStatus ? "🟢" : "🔴"}</li>
-          <li className="px-4">
+          <li className="px-4 font-semibold">
+            Online Status : {onlineStatus ? "🟢" : "🔴"}
+          </li>
+          <li className="px-4 font-semibold">
             <Link to="/">Home</Link>
           </li>
-          <li className="px-4 ">
+          <li className="px-4 font-semibold">
             <Link to="/about">About Us</Link>
           </li>
-          <li className="px-4">
+          <li className="px-4 font-semibold">
             <Link to="/contact">Contact us</Link>
           </li>
-          <li className="px-4">
+          <li className="px-4 font-semibold">
             <Link to="/grocery">GroceryStore</Link>
           </li>
-          <li className="px-4">Cart</li>
+          <li className="px-4 font-semibold">Cart</li>
           <button
-            className="login-btn"
+            className="font-semibold "
             onClick={() => {
               btnName === "Login" ? setbtnName("Logout") : setbtnName("Login"); //if btn name is alread login , then change to logout , otherwise change to login once again
               console.log(btnName);
