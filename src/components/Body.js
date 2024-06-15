@@ -94,7 +94,7 @@ const Body = () => {
       <div className="filter flex">
         <div className="px-6 m-4  flex items-center ">
           <button
-            className="px-4 py-3 bg-orange-300 rounded-lg"
+            className="px-4 py-3 bg-orange-400 rounded-lg"
             onClick={() => {
               const filteredList = resList.filter((res) => res.avgRating > 4.0);
               setFilteredRestro(filteredList);
@@ -115,7 +115,7 @@ const Body = () => {
             }}
           />
           <button
-            className="px-6 py-3 bg-green-100 m-4 rounded-lg "
+            className="px-6 py-3 bg-green-400 m-4 rounded-lg "
             onClick={() => {
               console.log(searchText);
               const filteredRestaurant = !searchText
