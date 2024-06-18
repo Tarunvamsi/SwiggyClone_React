@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
 import { createRoot } from "react-dom/client";
 import Header from "./components/Header";
@@ -6,16 +6,34 @@ import Body from "./components/Body";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import ContactUs from "./components/ContactUs";
 import Error from "./components/Error";
-import Footer from "./components/Footer";
 import RestaurantMenu from "./components/RestaurantMenu";
 // import Grocery from "./components/Grocery";
+import UserContext from "../utils/UserContext";
+import { Provider } from "react-redux";
+import appStore from "../utils/appStore";
+import Cart from "./components/Cart";
 
 const AppLayout = () => {
+  // Authentication code
+  const [userName, setUserName] = useState();
+  useEffect(() => {
+    const data = {
+      name: "Tarun Vamsi",
+    };
+    setUserName(data.name);
+  }, []);
+
+  // Authentication dummy logic ends here
+
   return (
-    <div className="app">
-      <Header></Header>
-      <Outlet></Outlet>
-    </div>
+    <Provider store={appStore}>
+      <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
+        <div className="app">
+          <Header></Header>
+          <Outlet></Outlet>
+        </div>
+      </UserContext.Provider>{" "}
+    </Provider>
   );
 };
 
@@ -54,16 +72,12 @@ const appRouter = createBrowserRouter([
         path: "/restaurants/:resId", //resId can be dynamic based on Restaurant
         element: <RestaurantMenu></RestaurantMenu>,
       },
+      {
+        path: "/cart",
+        element: <Cart></Cart>,
+      },
     ],
     errorElement: <Error></Error>,
-  },
-  {
-    path: "/about",
-    element: <About></About>,
-  },
-  {
-    path: "/contact",
-    element: <ContactUs></ContactUs>,
   },
 ]);
 const root = createRoot(document.getElementById("root"));

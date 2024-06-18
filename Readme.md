@@ -131,3 +131,13 @@
 - and it will updatge only the portion required
 
 - Never Use anchor tag in react to navgiate through pages , beacuase anchor tag will rerender the whole page again when navigated
+
+## REDUX TOOL KIT
+
+- Install @reduxjs/toolkit and react-redux
+- Build our Redux store
+- Connect our store to our App (React and redux bridge)
+- Create a slice (cart slice)
+- When we click on add button --> Dispatch an action
+- Selector
+-

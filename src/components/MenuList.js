@@ -1,8 +1,17 @@
 import React from "react";
 import Button from "./ui/Button";
 import { MENU_IMG_ID } from "../../utils/constants";
+import { useDispatch } from "react-redux";
+import { addItem } from "../../utils/cartSlice";
 
 const MenuList = ({ menuItems, openModal }) => {
+  const dispatch = useDispatch();
+
+  const handleAddItem = (menuItems) => {
+    //Dispatch an Action
+    dispatch(addItem(menuItems)); // pizza here is action.payload
+  };
+
   return (
     <div className="flex flex-wrap">
       {menuItems.map((item) => (
@@ -47,8 +56,8 @@ const MenuList = ({ menuItems, openModal }) => {
             <Button
               variant="SECONDARY"
               name="Add to cart"
-              handleClick={() => alert("Item added to cart :)")}
-            />
+              handleClick={() => handleAddItem(menuItems)}
+            ></Button>
           </div>
         </div>
       ))}

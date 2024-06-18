@@ -1,14 +1,21 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { LOGO_URL } from "../../utils/constants";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../../utils/useOnlineStatus";
+import UserContext from "../../utils/UserContext";
+import { useSelector } from "react-redux";
 
 const Header = () => {
   const [btnName, setbtnName] = useState("Login");
   const onlineStatus = useOnlineStatus();
+
+  const { loggedInUser } = useContext(UserContext);
+
   useEffect(() => {
-    console.log("useeffect called");
+    // console.log("useeffect called");
   }, [btnName]);
+
+  const cartItems = useSelector((store) => store.cart.items); //subscribing to store using selector
 
   return (
     <div className=" z-10 flex justify-between bg-orange-300 shadow-lg mb-2  w-full sticky top-0 ">
@@ -16,7 +23,7 @@ const Header = () => {
         <img className="w-20" alt="logo" src={LOGO_URL}></img>
       </div>
       <div>
-        <h1 class="text-6xl font-bold text-orange-600 transition duration-300 transform hover:scale-105 hover:shadow-lg">
+        <h1 className="text-6xl font-bold text-orange-600 transition duration-300 transform hover:scale-105 hover:shadow-lg">
           Foodie Haven
         </h1>
       </div>
@@ -37,16 +44,20 @@ const Header = () => {
           <li className="px-4 font-semibold">
             <Link to="/grocery">GroceryStore</Link>
           </li>
-          <li className="px-4 font-semibold">Cart</li>
+          <li className="px-4 font-semibold">
+            <Link to="/cart">Cart🛒({cartItems.length})</Link>
+          </li>
+
           <button
             className="font-semibold "
             onClick={() => {
               btnName === "Login" ? setbtnName("Logout") : setbtnName("Login"); //if btn name is alread login , then change to logout , otherwise change to login once again
-              console.log(btnName);
+              // console.log(btnName);
             }}
           >
             {btnName}
           </button>
+          <li className="px-4 font-semibold">{loggedInUser}</li>
         </ul>
       </div>
     </div>

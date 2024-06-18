@@ -1,5 +1,5 @@
 import RestaurantCard, { withVegLabel } from "./RestaurantCard";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { resList as resData } from "../../utils/mockData";
 import Shimmer from "./Shimmer";
 import { RESTAURANT_LIST_URL } from "../../utils/constants";
@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import useOnlineStatus from "../../utils/useOnlineStatus";
 import Location from "./Location";
 import Landing from "./Landing";
+import UserContext from "../../utils/UserContext";
 
 const Body = () => {
   const [resList, setResList] = useState([]);
@@ -16,6 +17,8 @@ const Body = () => {
   const [locationSearched, setLocationSearched] = useState(false);
   const [latLng, setLatLng] = useState({ lat: null, lng: null });
   const RestaurantCardVeg = withVegLabel(RestaurantCard); //have open label inside it
+
+  // const { setUserName, loggedInUser } = useContext(UserContext);
 
   useEffect(() => {
     if (latLng.lat && latLng.lng) {
@@ -132,7 +135,20 @@ const Body = () => {
           </button>
         </div>
         <Location onLocationSearch={handleLocationSearch} />
+
+        {/* Dummy input starts here */}
+        {/* <div>
+          <label className="m-4 p-4 ">UserName</label>
+          <input
+            type="text"
+            className=" px-6 m-2 py-3 border border-solid border-black"
+            value={loggedInUser}
+            onChange={(e) => setUserName(e.target.value)}
+          ></input>
+        </div> */}
+        {/* dummy input ends here */}
       </div>
+
       <div className="flex w-full justify-center flex-wrap">
         {filteredRestro.map((restaurant) => (
           <Link key={restaurant.id} to={"/restaurants/" + restaurant.id}>
