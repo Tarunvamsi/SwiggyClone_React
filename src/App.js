@@ -14,6 +14,11 @@ import appStore from "../utils/appStore";
 import Cart from "./components/Cart";
 
 const AppLayout = () => {
+  useEffect(() => {
+    alert(
+      "Please Install Allow CORS chrome extension to view this website.\nCORS error is under fix ⚒..."
+    );
+  }, []);
   // Authentication code
   const [userName, setUserName] = useState();
   useEffect(() => {
