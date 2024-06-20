@@ -2,14 +2,18 @@ import React from "react";
 import Button from "./ui/Button";
 import { MENU_IMG_ID } from "../../utils/constants";
 import { useDispatch } from "react-redux";
-import { addItem } from "../../utils/cartSlice";
+import { addItem, removeItem } from "../../utils/cartSlice";
 
 const MenuList = ({ menuItems, openModal }) => {
   const dispatch = useDispatch();
 
-  const handleAddItem = (menuItems) => {
+  const handleAddItem = (item) => {
     //Dispatch an Action
-    dispatch(addItem(menuItems)); // pizza here is action.payload
+    dispatch(addItem(item)); // pizza here is action.payload
+  };
+
+  const handleremoveItem = (item) => {
+    dispatch(removeItem(item));
   };
 
   return (
@@ -55,8 +59,13 @@ const MenuList = ({ menuItems, openModal }) => {
             />
             <Button
               variant="SECONDARY"
-              name="Add to cart"
-              handleClick={() => handleAddItem(menuItems)}
+              name="Add"
+              handleClick={() => handleAddItem(item)}
+            ></Button>
+            <Button
+              variant="SECONDARY"
+              name="Remove"
+              handleClick={() => handleremoveItem(item)}
             ></Button>
           </div>
         </div>

@@ -24,7 +24,7 @@ const Header = () => {
       </div>
       <div>
         <h1 className="text-6xl font-bold text-orange-600 transition duration-300 transform hover:scale-105 hover:shadow-lg">
-          Foodie Haven
+          Hunger Box
         </h1>
       </div>
       <div className="flex items-center px-2">
