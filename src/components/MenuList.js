@@ -32,7 +32,7 @@ const MenuList = ({ menuItems, openModal }) => {
             <span className="inline-flex items-center">
               {item.card.info.itemAttribute.vegClassifier === "VEG" ? (
                 <img
-                  src="https://png.pngitem.com/pimgs/s/151-1515150_veg-icon-png-circle-transparent-png.png"
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Indian-vegetarian-mark.svg/480px-Indian-vegetarian-mark.svg.png"
                   alt="Veg"
                   className="ml-2 w-4 h-4"
                 />
