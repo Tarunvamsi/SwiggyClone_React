@@ -12,6 +12,7 @@ import LoginIcon from "./icons/LoginIcon";
 import GroceryIcon from "./icons/GroceryIcon";
 import OnlineIcon from "./icons/OnlineIcon";
 import OfflineIcon from "./icons/OfflineIcon";
+import UserIcon from "./icons/UserIcon";
 
 const Header = () => {
   const [btnName, setbtnName] = useState("Login");
@@ -90,7 +91,9 @@ const Header = () => {
           </button> */}
 
           <LoginIcon></LoginIcon>
-          <li className="px-4 font-semibold">{loggedInUser}</li>
+          <li className="px-4 font-semibold flex items-center">
+            <UserIcon /> <span className="ml-2">{loggedInUser}</span>
+          </li>
         </ul>
       </div>
     </div>
