@@ -1,14 +1,36 @@
 import Location from "./Location";
 import Footer from "./Footer";
+import { useEffect, useState } from "react";
+import React from "react";
+
+// courousel start
+
+const imageUrls = [
+  "https://png.pngtree.com/background/20230621/original/pngtree-rapidly-satisfy-your-hunger-with-3d-fast-food-background-03-picture-image_3910286.jpg",
+  "https://png.pngtree.com/thumb_back/fh260/background/20240125/pngtree-iftar-food-table-evening-meal-for-ramadan-image_15572060.png",
+  "https://img.freepik.com/free-photo/close-up-appetizing-ramadan-meal_23-2151182536.jpg",
+  "https://t4.ftcdn.net/jpg/07/46/74/67/360_F_746746718_4GX7FuzUYxIVLupapbpMZH76nj28uoQU.jpg",
+];
+
 const Landing = () => {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % imageUrls.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
+
+  //  courousel ends
+
   return (
     <div>
       {/* Hero Section */}
       <section
         className="bg-cover bg-center mb-8 items-center"
         style={{
-          backgroundImage:
-            "url('https://png.pngtree.com/background/20230621/original/pngtree-rapidly-satisfy-your-hunger-with-3d-fast-food-background-03-picture-image_3910286.jpg')",
+          backgroundImage: `url(${imageUrls[currentImageIndex]})`,
         }}
       >
         <div className="bg-black bg-opacity-50 text-center text-white py-12 ">
