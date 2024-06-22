@@ -25,7 +25,7 @@ const Landing = () => {
   //  courousel ends
 
   return (
-    <div>
+    <div className="items-center justify-center">
       {/* Hero Section */}
       <section
         className="bg-cover bg-center mb-8 items-center"
@@ -33,7 +33,7 @@ const Landing = () => {
           backgroundImage: `url(${imageUrls[currentImageIndex]})`,
         }}
       >
-        <div className="bg-black bg-opacity-50 text-center text-white py-12 ">
+        <div className="bg-black bg-opacity-50 text-center text-white py-12">
           <h2 className="text-4xl md:text-6xl font-bold mb-4 ">
             Discover Delicious Meals
           </h2>

@@ -7,5 +7,26 @@ node_modules/
 # Parcel build output
 dist/
 
+# Environment variables
 .env
 .env.test
+
+# Coverage directory
+coverage/
+
+# IDE specific files
+.vscode/
+
+# System files
+.DS_Store
+
+# Miscellaneous
+.parcelrc
+babel.config.js
+jest.config.js
+
+# Specific coverage report files
+coverage/clover.xml
+coverage/coverage-final.json
+coverage/lcov-report/
+coverage/lcov.info
