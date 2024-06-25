@@ -12,6 +12,9 @@ import UserContext from "../utils/UserContext";
 import { Provider } from "react-redux";
 import appStore from "../utils/appStore";
 import Cart from "./components/Cart";
+import Login from "./components/Login";
+import SignUp from "./components/SignUp";
+import Landing from "./components/Landing";
 
 const AppLayout = () => {
   // useEffect(() => {
@@ -29,11 +32,12 @@ const AppLayout = () => {
   }, []);
 
   // Authentication dummy logic ends here
-
+  // const showHeader = !["/login", "/signup"].includes(location.pathname);
   return (
     <Provider store={appStore}>
       <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
         <div className="app">
+          {/* {showHeader || <Header />} */}
           <Header></Header>
           <Outlet></Outlet>
         </div>
@@ -49,9 +53,13 @@ const appRouter = createBrowserRouter([
     path: "/",
     element: <AppLayout></AppLayout>,
     children: [
+      // {
+      //   path: "/",
+      //   element: <Body></Body>,
+      // },
       {
         path: "/",
-        element: <Body></Body>,
+        element: <Login></Login>,
       },
       {
         path: "/about",
@@ -80,6 +88,18 @@ const appRouter = createBrowserRouter([
       {
         path: "/cart",
         element: <Cart></Cart>,
+      },
+      {
+        path: "/login",
+        element: <Login></Login>,
+      },
+      {
+        path: "/signup",
+        element: <SignUp></SignUp>,
+      },
+      {
+        path: "/home",
+        element: <Body></Body>,
       },
     ],
     errorElement: <Error></Error>,

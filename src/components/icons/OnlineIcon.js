@@ -1,13 +1,13 @@
 const OnlineIcon = () => {
   return (
     <svg
-      class="h-8 w-8 text-green-500"
+      className="h-8 w-8 text-green-500"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     >
       {" "}
       <path d="M5 12.55a11 11 0 0 1 14.08 0" />{" "}

@@ -38,7 +38,7 @@ const Cart = ({ menuItems, openModal }) => {
             <h2 className="text-1xl   ">
               You can go to home page to view more restaurants
             </h2>
-            <Link to="/">
+            <Link to="/home">
               <button className="m-4 p-4 bg-green-400 rounded-lg font-bold text-lg ">
                 Go to Home
               </button>

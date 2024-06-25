@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext } from "react";
 import { LOGO_URL } from "../../utils/constants";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import useOnlineStatus from "../../utils/useOnlineStatus";
 import UserContext from "../../utils/UserContext";
 import { useSelector } from "react-redux";
@@ -19,6 +19,7 @@ const Header = () => {
   const onlineStatus = useOnlineStatus();
 
   const { loggedInUser } = useContext(UserContext);
+  const location = useLocation();
 
   useEffect(() => {
     // console.log("useeffect called");
@@ -40,7 +41,7 @@ const Header = () => {
             {onlineStatus ? <OnlineIcon /> : <OfflineIcon />}
           </li>
           <li className="px-4 font-semibold">
-            <Link to="/">
+            <Link to="/home">
               <HomeIcon></HomeIcon>
             </Link>
           </li>
@@ -92,7 +93,10 @@ const Header = () => {
 
           <LoginIcon></LoginIcon>
           <li className="px-4 font-semibold flex items-center">
-            <UserIcon /> <span className="ml-2">{loggedInUser}</span>
+            <UserIcon />
+            {location.state && location.state.id && (
+              <span className="ml-2">{location.state.id}</span>
+            )}
           </li>
         </ul>
       </div>

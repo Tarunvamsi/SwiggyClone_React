@@ -1,13 +1,13 @@
 const OfflineIcon = () => {
   return (
     <svg
-      class="h-8 w-8 text-red-500"
+      className="h-8 w-8 text-red-500"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     >
       {" "}
       <line x1="1" y1="1" x2="23" y2="23" />{" "}
