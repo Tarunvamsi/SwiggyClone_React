@@ -28,8 +28,14 @@ const Login = () => {
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <div className="bg-white p-8 rounded-lg shadow-lg max-w-md w-full">
-        <h1 className="text-2xl font-bold mb-6 text-center">Login</h1>
+      <div className="bg-orange-200 p-8 rounded-lg shadow-xl max-w-md w-full ">
+        <h1 className="text-2xl font-bold mb-6 text-center">
+          Login to your Account
+        </h1>
+        <img
+          className="p-3 rounded-2xl "
+          src="https://media.licdn.com/dms/image/C5612AQFN40Wk2QqUWQ/article-cover_image-shrink_600_2000/0/1520185626909?e=2147483647&v=beta&t=I5RIGaNcW9JsCCOtEsGtGEaVGRjSK1KFKLBMUzYv1-k"
+        />
         <form onSubmit={submit} className="space-y-4">
           <input
             type="email"

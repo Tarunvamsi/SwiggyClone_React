@@ -28,8 +28,12 @@ const SignUp = () => {
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <div className="bg-white p-8 rounded-lg shadow-lg max-w-md w-full">
+      <div className="bg-orange-200 p-8 rounded-lg shadow-xl max-w-md w-full">
         <h1 className="text-2xl font-bold mb-6 text-center">Sign Up</h1>
+        <img
+          className="p-3 rounded-2xl"
+          src="https://media.licdn.com/dms/image/C5612AQFN40Wk2QqUWQ/article-cover_image-shrink_600_2000/0/1520185626909?e=2147483647&v=beta&t=I5RIGaNcW9JsCCOtEsGtGEaVGRjSK1KFKLBMUzYv1-k"
+        />
         <form onSubmit={submit} className="space-y-4">
           <input
             type="email"
@@ -51,7 +55,7 @@ const SignUp = () => {
             type="submit"
             className="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 transition duration-200"
           >
-            Sign Up
+            Sign Up a new account
           </button>
         </form>
         <div className="text-center mt-4">

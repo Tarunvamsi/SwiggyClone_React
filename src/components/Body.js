@@ -36,7 +36,11 @@ const Body = () => {
 
   const fetchData = async (lat, lng) => {
     setIsLoading(true);
-    const response = await fetch(RESTAURANT_LIST_URL(lat, lng));
+    const response = await fetch(RESTAURANT_LIST_URL(lat, lng), {
+      headers: {
+      'x-cors-api-key': process.env.CORS_API_KEY
+      }
+    });
     const responseJson = await response.json();
     console.log(responseJson);
 
