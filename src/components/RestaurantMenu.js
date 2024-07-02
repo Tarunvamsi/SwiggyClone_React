@@ -8,6 +8,7 @@ import Button from "./ui/Button";
 import Toggle from "./ui/Toggle";
 import RestaurantCategory from "./RestaurantCategory";
 import MenuList from "./MenuList";
+import AngleDownIcon from "./icons/AngleDownIcon";
 
 // Set the app element for the modal (usually your root element)
 Modal.setAppElement("#root");
@@ -75,7 +76,7 @@ const RestaurantMenu = () => {
                 <span className="font-bold text-lg">
                   {categoryTitle} ({menuItems.length})
                 </span>
-                <span>⏬</span>
+                <AngleDownIcon></AngleDownIcon>
               </div>
 
               {openAccordions[index] && (

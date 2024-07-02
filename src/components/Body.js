@@ -3,7 +3,7 @@ import React, { useEffect, useState, useContext } from "react";
 import { resList as resData } from "../../utils/mockData";
 import Shimmer from "./Shimmer";
 import { RESTAURANT_LIST_URL } from "../../utils/constants";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import useOnlineStatus from "../../utils/useOnlineStatus";
 import Location from "./Location";
 import Landing from "./Landing";
@@ -38,8 +38,8 @@ const Body = () => {
     setIsLoading(true);
     const response = await fetch(RESTAURANT_LIST_URL(lat, lng), {
       headers: {
-      'x-cors-api-key': process.env.CORS_API_KEY
-      }
+        "x-cors-api-key": process.env.CORS_API_KEY,
+      },
     });
     const responseJson = await response.json();
     console.log(responseJson);
@@ -113,7 +113,7 @@ const Body = () => {
         <div className="p-4 m-4">
           <input
             type="text"
-            className=" px-6 py-3 border border-solid border-black"
+            className=" px-6 py-3 border border-solid border-black rounded-xl  "
             value={searchText}
             placeholder="Search Restaurants here..."
             onChange={(e) => {

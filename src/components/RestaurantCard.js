@@ -14,8 +14,8 @@ const RestaurantCard = (props) => {
     totalRatingsString,
   } = resData; //object destructuring
   return (
-    <div className="m-4 p-4 w-[250px] bg-orange-100 shadow-xl rounded-lg justify-center">
-      <img
+<div className="m-4 p-4 w-[250px] bg-white shadow-2xl rounded-lg justify-center border hover:border-black">
+<img
         className="h-[180px] w-[220px] rounded-md"
         alt="res-logo"
         src={CDN_URL + cloudinaryImageId}
@@ -23,11 +23,12 @@ const RestaurantCard = (props) => {
       <h3 className="font-bold py-4 text-lg">
         {name.length > 23 ? `${name.slice(0, 20)}...` : name}
       </h3>
-      <h4 className="font-semibold py-1">
-        🏭{locality.length > 18 ? `${locality.slice(0, 17)}...` : locality}
-      </h4>
+      
 
       <h4>{cuisines.slice(0, 2).join(", ")}</h4>
+      <h4 className="font-semibold py-1">
+        📍{locality.length > 18 ? `${locality.slice(0, 17)}...` : locality}
+      </h4>
       <div
         style={{
           display: "flex",
@@ -66,3 +67,7 @@ export const withVegLabel = (RestaurantCard) => {
 };
 
 export default RestaurantCard;
+
+
+
+

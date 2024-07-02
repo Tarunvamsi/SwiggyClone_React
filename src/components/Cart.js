@@ -11,8 +11,8 @@ const Cart = ({ menuItems, openModal }) => {
   console.log(cartItems);
   const dispatch = useDispatch();
 
-  const handleClearCart = (cartItems) => {
-    dispatch(clearCart(cartItems));
+  const handleClearCart = () => {
+    dispatch(clearCart());
   };
 
   return (
@@ -23,7 +23,7 @@ const Cart = ({ menuItems, openModal }) => {
           className="px-4 py-3 m-4 bg-orange-400 rounded-lg font-bold text-lg"
           onClick={handleClearCart}
         >
-          clear cart
+          Clear Cart
         </button>
         {cartItems.length === 0 && (
           <div className=" items-center justify-center">
@@ -36,7 +36,7 @@ const Cart = ({ menuItems, openModal }) => {
               Your cart is empty📪..Add some items to the cart🛒 !!
             </h1>
             <h2 className="text-1xl   ">
-              You can go to home page to view more restaurants
+              You can go to the home page to view more restaurants
             </h2>
             <Link to="/home">
               <button className="m-4 p-4 bg-green-400 rounded-lg font-bold text-lg ">
@@ -45,7 +45,11 @@ const Cart = ({ menuItems, openModal }) => {
             </Link>
           </div>
         )}
-        <MenuList menuItems={cartItems}></MenuList>
+        {cartItems.length > 0 && (
+          <>
+            <MenuList menuItems={cartItems} openModal={openModal} />
+          </>
+        )}
       </div>
     </div>
   );
